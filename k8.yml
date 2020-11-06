@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yugabyte-tests
+spec:
+  selector:
+    matchLabels:
+      app: yugabyte-tests
+  template:
+    metadata:
+      labels:
+        app: yugabyte-tests
+    spec:
+      containers:
+      - name: yugabyte-tests
+        image: alexvaut/yugabyte-tests:latest
+        imagePullPolicy: IfNotPresent        
+        env:
+          - name: TestConfig__TestCount
+            value: "10"
+          - name: CqlConfig__HostName
+            value: yb-tserver-service
+          - name: SqlConfig__ConnectionString
+            value: host=yb-tserver-service;port=5433;user id=yugabyte;password=      
