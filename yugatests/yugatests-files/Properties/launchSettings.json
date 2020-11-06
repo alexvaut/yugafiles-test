@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "yugatests-files": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "CqlConfig__HostName": "192.168.1.11",
+        "SqlConfig__ConnectionString": "host=192.168.1.11;port=5433;user id=yugabyte;password="
+      }
+    }
+  }
+}
